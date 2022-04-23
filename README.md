@@ -64,17 +64,19 @@ def calculator(url,ip,port):
         code =req.status_code
         text = req.text
         rsp = '"error":"Internal Server Error"'
+
         if code == 500 and rsp in text:
             print('{url} 存在漏洞')
         else:
             print('{url} 不存在漏洞')
+
     except requests.exceptions.RequestException:
         print('[-]{url} 检测超时')
         pass
     except:
         print('[-]{url} 检测异常')
         pass
-        
+
 if __name__ == '__main__' :
     try:
         cmd1 =sys.argv[1]
