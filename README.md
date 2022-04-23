@@ -79,9 +79,6 @@ def calculator(url,ip,port):
     except:
         print('[-]{url} 检测异常')
         pass
-
-
-
 if __name__ == '__main__' :
     try:
         cmd1 =sys.argv[1]
