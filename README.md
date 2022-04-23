@@ -33,6 +33,7 @@ jojo
 ![图片](https://user-images.githubusercontent.com/90664154/164909439-3dd2662e-1eb7-4231-8ec6-95a7f2a262eb.png)
 
 二、漏洞分析
+
 header头的spring.cloud.function.routing-expression参数调用链：
 org.springframework.cloud.function.web.mvc.FunctionController中,
 body-> processReques(RoutingFunction)-> FunctionInvocationWrapper.apply-> doApply-> RoutingFunction(apply)-> org.springframework.cloud.function.context.config.RoutingFunction(route)-> this.functionFromExpression()，最终执行，这其中的安全过滤函数不充分
