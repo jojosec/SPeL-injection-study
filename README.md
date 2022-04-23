@@ -1,4 +1,4 @@
-# SPeL-injection-study
+# SPeL-injection-study（CVE-2022-22963）
 
 共分为环境搭建及漏洞复现、原理学习、POC编写三部分
 
